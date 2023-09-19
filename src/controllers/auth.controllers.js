@@ -3,11 +3,11 @@ import bcrypt from "bcryptjs"
 import prisma from "../utils/prisma.js"
 import { validateLogin } from "../validators/auth.js"
 import { filter } from "../utils/common.js"
-import { signAccessToken } from "./src/utils/jwt.js"
+import { signAccessToken } from "../utils/jwt.js"
 const router = express.Router()
 
 
-router.post('/auth', async (req,res) => {
+router.post('/', async (req,res) => {
     const data = req.body
     const validationErrors = validateLogin(data)
     console.log(validationErrors)
@@ -32,3 +32,4 @@ router.post('/auth', async (req,res) => {
       return res.json({ accessToken })
     })
     
+    export default router
